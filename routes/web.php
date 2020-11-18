@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,7 @@ Route::get('/register', function(){
    return view('register');
 });
 
-Route::get('/cart', function(){
-    return view('cart');
-});
+Route::get('/cart',[OrderController::class, 'index'])->name('order_by_user');
 
 Route::get('/checkout', function(){
     return view('checkout');
